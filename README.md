@@ -1,4 +1,4 @@
-```c
+```c++
 #include <windows.h>
 #include <tchar.h>
 
