@@ -21,16 +21,16 @@ public:
 namespace COMPRESS {
     namespace ALGORITHM {
         namespace XPRESS {
-            SIZE_T decompress(CONST BYTE* CompressedData, const SIZE_T CompressedDataSize, BYTE** UncompressedBuffer);
+            SIZE_T decompress(CONST BYTE* CompressedData, CONST SIZE_T CompressedDataSize, BYTE** UncompressedBuffer);
         }
         namespace XPRESS_HUFF {
-            SIZE_T decompress(CONST BYTE* CompressedData, const SIZE_T CompressedDataSize, BYTE** UncompressedBuffer);
+            SIZE_T decompress(CONST BYTE* CompressedData, CONST SIZE_T CompressedDataSize, BYTE** UncompressedBuffer);
         }
         namespace MSZIP {
-            SIZE_T decompress(CONST BYTE* CompressedData, const SIZE_T CompressedDataSize, BYTE** UncompressedBuffer);
+            SIZE_T decompress(CONST BYTE* CompressedData, CONST SIZE_T CompressedDataSize, BYTE** UncompressedBuffer);
         }
         namespace LZMS {
-            SIZE_T decompress(CONST BYTE* CompressedData, const SIZE_T CompressedDataSize, BYTE** UncompressedBuffer);
+            SIZE_T decompress(CONST BYTE* CompressedData, CONST SIZE_T CompressedDataSize, BYTE** UncompressedBuffer);
         }
     }
 }
