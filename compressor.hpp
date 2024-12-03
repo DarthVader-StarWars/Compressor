@@ -5,19 +5,34 @@
 
 #pragma comment(lib, "cabinet.lib")
 
+class Compressor {
+private:
+    COMPRESSOR_HANDLE hCompressor;
+public:
+    Compressor(DWORD Algorithm, PCOMPRESS_ALLOCATION_ROUTINES AllocationRoutines) {
+        CreateCompressor(Algorithm, AllocationRoutines, &this->hCompressor);
+    }
+    ~Compressor() {
+        CloseCompressor(this->hCompressor);
+    }
+    COMPRESSOR_HANDLE getCompressor() {
+        return this->hCompressor;
+    }
+};
+
 namespace COMPRESS {
     namespace ALGORITHM {
         namespace XPRESS {
-            size_t compress(const void* UncompressedData, const size_t UncompressedDataSize, void** CompressedBuffer);
+            SIZE_T compress(CONST BYTE* UncompressedData, CONST SIZE_T UncompressedDataSize, BYTE** CompressedBuffer);
         }
         namespace XPRESS_HUFF {
-            size_t compress(const void* UncompressedData, const size_t UncompressedDataSize, void** CompressedBuffer);
+            SIZE_T compress(CONST BYTE* UncompressedData, CONST SIZE_T UncompressedDataSize, BYTE** CompressedBuffer);
         }
         namespace MSZIP {
-            size_t compress(const void* UncompressedData, const size_t UncompressedDataSize, void** CompressedBuffer);
+            SIZE_T compress(CONST BYTE* UncompressedData, CONST SIZE_T UncompressedDataSize, BYTE** CompressedBuffer);
         }
         namespace LZMS {
-            size_t compress(const void* UncompressedData, const size_t UncompressedDataSize, void** CompressedBuffer);
+            SIZE_T compress(CONST BYTE* UncompressedData, CONST SIZE_T UncompressedDataSize, BYTE** CompressedBuffer);
         }
     }
 }
