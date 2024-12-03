@@ -6,21 +6,21 @@
 #include "decompressor.hpp"
 
 INT _tmain(INT argc, TCHAR** argv, TCHAR** envp) {
-    const char UncompressedData[] = {
+    CONST BYTE UncompressedData[] = {
         'a', 'b', 'c', 'd'
     };
-    int UncompressedDataSize = 4;
-    char* CompressedBuffer = NULL;
-    size_t CompressedBufferSize = COMPRESS::ALGORITHM::XPRESS::compress(
-        UncompressedData, 
-        UncompressedDataSize, 
-        (void**)&CompressedBuffer
+    SIZE_T UncompressedDataSize = 4;
+    BYTE* CompressedBuffer = nullptr;
+    SIZE_T CompressedBufferSize = COMPRESS::ALGORITHM::XPRESS::compress(
+        UncompressedData,
+        UncompressedDataSize,
+        &CompressedBuffer
     );
-    char* UncompressedBuffer = NULL;
-    size_t DecompressedBufferSize = COMPRESS::ALGORITHM::XPRESS::decompress(
-        CompressedBuffer, 
-        CompressedBufferSize, 
-        (void**)&UncompressedBuffer
+    BYTE* UncompressedBuffer = nullptr;
+    SIZE_T DecompressedBufferSize = COMPRESS::ALGORITHM::XPRESS::decompress(
+        CompressedBuffer,
+        CompressedBufferSize,
+        &UncompressedBuffer
     );
     delete[] CompressedBuffer;
     delete[] UncompressedBuffer;
